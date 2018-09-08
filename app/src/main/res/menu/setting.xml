@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_logout"
+        android:title="@string/signout"
+        android:orderInCategory="2"/>
+    <item android:id="@+id/action_logout"
+        android:title="@string/setting"
+        android:orderInCategory="1"
+        tools:ignore="DuplicateIds" />
+</menu>

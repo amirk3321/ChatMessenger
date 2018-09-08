@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Chat Room</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="signout">Sign Out</string>
+    <string name="setting">Setting</string>
+</resources>
