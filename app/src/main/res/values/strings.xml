@@ -3,5 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="signout">Sign Out</string>
+    <string name="example_msg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</string>
     <string name="setting">Setting</string>
+    <string name="hint_msg">What\'s On Your Mind...!</string>
 </resources>

@@ -23,10 +23,12 @@ class HomeActivity : AppCompatActivity() {
         chat.setOnClickListener {
 
         }
+        chat.setOnClickListener {
+            viewpager.currentItem = 0
+        }
         chat.apply {
             setTextColor(Color.WHITE)
             setTextSize(20f)
-            viewpager.currentItem = 0
         }
         profile.setOnClickListener {
             viewpager.currentItem = 1
