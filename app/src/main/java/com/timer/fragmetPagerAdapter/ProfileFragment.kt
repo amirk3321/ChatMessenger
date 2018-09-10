@@ -17,6 +17,7 @@ import com.timer.glide.GlideApp
 import com.timer.model.User
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import org.jetbrains.anko.support.v4.toast
 import java.io.ByteArrayOutputStream
 
 class ProfileFragment : Fragment() {
@@ -35,6 +36,7 @@ class ProfileFragment : Fragment() {
                     putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg","image/png"))
                 }
                 startActivityForResult(Intent.createChooser(imageintent,"Select Image"),RC_IMAGE_CHANGE)
+                toast("Save..!")
             }
             save.setOnClickListener {
                 if (::mImagebyte.isInitialized){

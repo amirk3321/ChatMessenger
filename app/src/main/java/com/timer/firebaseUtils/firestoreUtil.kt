@@ -2,25 +2,23 @@ package com.timer.firebaseUtils
 
 import android.content.Context
 import android.util.Log
-import com.timer.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.timer.AppConstent.AppConstent
 import com.timer.AppConstent.LogConstent
-import com.timer.model.TextMassage
-import com.timer.model.chatChannel
-import com.timer.model.massage
+import com.timer.model.*
+import com.timer.recyclerViewAdapter.ImageMassageItem
 import com.timer.recyclerViewAdapter.Person
 import com.timer.recyclerViewAdapter.TextMassageItems
 import com.xwray.groupie.kotlinandroidextensions.Item
 import org.jetbrains.anko.appcompat.v7.Appcompat
 
 object firestoreUtil {
-    val firestore: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
+   private val firestore: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
 
-    val currentUerRef: DocumentReference
+    private val currentUerRef: DocumentReference
         get() = firestore.document("user/${FirebaseAuth.getInstance()
                 .currentUser?.uid ?: throw NullPointerException("UID is Null")}")
 
@@ -106,9 +104,12 @@ object firestoreUtil {
                     }
                     val listItems = mutableListOf<Item>()
                     querySnapshot!!.documents.forEach {
-                        if (it["type"]==AppConstent.TEXT){
+                        if (it["type"]==AppConstent.TEXT)
                             listItems.add(TextMassageItems(it.toObject(TextMassage::class.java)!!,context))
-                        }else{}
+                        else
+                            listItems.add(ImageMassageItem(it.toObject(Imagemassge::class.java)!!,context))
+
+                        return@forEach
                     }
                     onSuccess(listItems)
                 }

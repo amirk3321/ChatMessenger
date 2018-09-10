@@ -26,6 +26,7 @@ class Registration : AppCompatActivity() {
 
         if (FirebaseAuth.getInstance().currentUser !=null){
             startActivity<HomeActivity>()
+            finish()
         }
 
         signInGoogle.setOnClickListener {

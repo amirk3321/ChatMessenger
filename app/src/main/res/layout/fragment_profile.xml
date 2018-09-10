@@ -29,14 +29,16 @@
             android:layout_marginTop="167dp"
             android:ems="10"
             android:hint="Name"
+            android:layout_below="@id/profile"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/bio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:ems="10"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/name"
             android:hint="Bio"
             android:inputType="textPersonName" />
 
@@ -44,17 +46,16 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@id/bio"
-            android:layout_marginBottom="157dp"
             android:text="save"
             android:padding="4dp"
+            android:layout_below="@id/bio"
+            android:layout_alignEnd="@id/bio"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/ic_save_black_24dp"
             android:background="@color/colorAccent"
             android:textColor="@color/colorTextIcon"
-            android:layout_marginEnd="10dp"
-            android:layout_alignRight="@id/bio"
-            android:layout_marginRight="10dp" />
+            tools:ignore="RtlCompat" />
     </RelativeLayout>
 
 </FrameLayout>

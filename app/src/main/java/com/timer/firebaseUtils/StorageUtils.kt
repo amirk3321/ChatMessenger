@@ -7,16 +7,24 @@ import com.google.firebase.storage.StorageReference
 import java.util.*
 
 object StorageUtils {
-    val storageInstance : FirebaseStorage by lazy { FirebaseStorage.getInstance() }
-    val storageuserRef : StorageReference
-    get() = storageInstance.reference.child(FirebaseAuth.getInstance().currentUser!!.uid
-    ?: throw NullPointerException("Uid"))
+    private val storageInstance: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
+    private val storageuserRef: StorageReference
+        get() = storageInstance.reference.child(FirebaseAuth.getInstance().currentUser!!.uid
+                ?: throw NullPointerException("Uid"))
 
-    fun onUpladImagebyteimage(byteimage:ByteArray,onSucess :(imagepath :String) ->Unit){
-        val ref= storageuserRef.child("profiles/${UUID.nameUUIDFromBytes(byteimage)}")
+    fun onUpladImagebyteimage(byteimage: ByteArray, onSucess: (imagepath: String) -> Unit) {
+        val ref = storageuserRef.child("profiles/${UUID.nameUUIDFromBytes(byteimage)}")
         ref.putBytes(byteimage).addOnSuccessListener {
             onSucess(ref.path)
         }
     }
-    fun onStorageReferencePath(path :String) = storageInstance.getReference(path)
+
+    fun onSentMassagePicture(byteimage: ByteArray, onSucess: (imagepath: String) -> Unit) {
+        val ref = storageuserRef.child("massages/${UUID.nameUUIDFromBytes(byteimage)}")
+        ref.putBytes(byteimage).addOnSuccessListener {
+            onSucess(ref.path)
+        }
+    }
+
+    fun onStorageReferencePath(path: String) = storageInstance.getReference(path)
 }
